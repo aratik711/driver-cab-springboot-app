@@ -54,7 +54,7 @@ public class DriverDO
     private OnlineStatus onlineStatus;
 
 
-    private DriverDO()
+    public DriverDO()
     {
     }
 
@@ -87,12 +87,21 @@ public class DriverDO
         return username;
     }
 
+    public void setUsername(String username)
+    {
+        this.username = username;
+    }
+
 
     public String getPassword()
     {
         return password;
     }
 
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
 
     public Boolean getDeleted()
     {

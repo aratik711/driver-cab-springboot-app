@@ -3,6 +3,7 @@ package com.mytaxi.datatransferobject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.mytaxi.domainvalue.GeoCoordinate;
 import javax.validation.constraints.NotNull;
 
@@ -18,20 +19,26 @@ public class DriverDTO
     @NotNull(message = "Password can not be null!")
     private String password;
 
+    private String status;
+
     private GeoCoordinate coordinate;
 
+    private CarDTO carDTO;
 
-    private DriverDTO()
+    public DriverDTO()
     {
     }
 
 
-    private DriverDTO(Long id, String username, String password, GeoCoordinate coordinate)
+    public DriverDTO(Long id, String username, String password, String status, GeoCoordinate coordinate, CarDTO carDTO)
     {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.status = status;
         this.coordinate = coordinate;
+        this.carDTO = carDTO;
+
     }
 
 
@@ -65,12 +72,25 @@ public class DriverDTO
         return coordinate;
     }
 
+    public CarDTO getCarDTO()
+    {
+        return carDTO;
+    }
+
+
+    public void setCarDTO(CarDTO carDTO)
+    {
+        this.carDTO = carDTO;
+    }
+
     public static class DriverDTOBuilder
     {
         private Long id;
         private String username;
         private String password;
+        private String status;
         private GeoCoordinate coordinate;
+        private CarDTO carDTO;
 
 
         public DriverDTOBuilder setId(Long id)
@@ -100,10 +120,21 @@ public class DriverDTO
             return this;
         }
 
+        public DriverDTOBuilder setStatus(String status)
+        {
+            this.status = status;
+            return this;
+        }
+
+        public DriverDTOBuilder setCarDto(CarDTO carDTO)
+        {
+            this.carDTO = carDTO;
+            return this;
+        }
 
         public DriverDTO createDriverDTO()
         {
-            return new DriverDTO(id, username, password, coordinate);
+            return new DriverDTO(id, username, password, status, coordinate, carDTO);
         }
 
     }

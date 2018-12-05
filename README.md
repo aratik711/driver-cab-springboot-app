@@ -33,9 +33,9 @@ _NOTE: Please DO NOT publish the project, e.g. by uploading it to GitHub or the 
 
 ## Task 1
  * Write a new Controller for maintaining cars (CRUD).
-   * Decide on your own how the methods should look like.
-   * Entity Car: Should have at least the following characteristics: license_plate, seat_count, convertible, rating, engine_type (electric, gas, ...)
-   * Entity Manufacturer: Decide on your own if you will use a new table or just a string column in the car table.
+   * Decide on your own how the methods should look like. - done  
+   * Entity Car: Should have at least the following characteristics: license_plate, seat_count, convertible, rating, engine_type (electric, gas, ...) - done
+   * Entity Manufacturer: Decide on your own if you will use a new table or just a string column in the car table. - done
  * Extend the DriverController to enable drivers to select a car they are driving with.
  * Extend the DriverController to enable drivers to deselect a car.
  * Extend the DriverDo to map the selected car to the driver.

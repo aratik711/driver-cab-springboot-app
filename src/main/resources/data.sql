@@ -40,3 +40,22 @@ values
  (8,
  'aced0005737200226f72672e737072696e676672616d65776f726b2e646174612e67656f2e506f696e7431b9e90ef11a4006020002440001784400017978704023000000000000404bfa1cac083127', now(), now(), false, 'ONLINE',
 'driver08pw', 'driver08');
+
+-- Create 3 Manufacturer
+insert into manufacturer(id, date_created, name) values(1,  now(), 'Honda');
+insert into manufacturer(id, date_created, name) values(2,  now(), 'Audi');
+insert into manufacturer(id, date_created, name) values(3,  now(), 'Tata');
+
+-- Create 3 Cars
+
+insert into car(id, convertible, enginetype, licenseplate, rating, seatcount, manufacturer)
+values(1, false, 'petrol', 'MD3214', 2, 2, 1);
+
+insert into car(id, convertible, enginetype, licenseplate, rating, seatcount, manufacturer)
+values(2, true, 'diesel', 'KD7893', 1, 4, 2);
+
+insert into car(id, convertible, enginetype, licenseplate, rating, seatcount, manufacturer)
+values(3, false, 'gas', 'AQ6529', 4, 7, 1);
+
+insert into car(id, convertible, enginetype, licenseplate, rating, seatcount, manufacturer)
+values(4, false,  'gas', 'AQ6534', 4, 7, 3);

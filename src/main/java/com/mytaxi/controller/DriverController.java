@@ -5,9 +5,13 @@ import com.mytaxi.datatransferobject.DriverDTO;
 import com.mytaxi.domainobject.DriverDO;
 import com.mytaxi.domainvalue.OnlineStatus;
 import com.mytaxi.exception.ConstraintsViolationException;
+import com.mytaxi.exception.CarAlreadyInUseException;
 import com.mytaxi.exception.EntityNotFoundException;
 import com.mytaxi.service.driver.DriverService;
+
 import java.util.List;
+import java.util.Map;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,7 +46,7 @@ public class DriverController
 
 
     @GetMapping("/{driverId}")
-    public DriverDTO getDriver(@PathVariable long driverId) throws EntityNotFoundException
+    public DriverDTO getDriver(@Valid @PathVariable long driverId) throws EntityNotFoundException
     {
         return DriverMapper.makeDriverDTO(driverService.find(driverId));
     }
@@ -77,5 +81,27 @@ public class DriverController
     public List<DriverDTO> findDrivers(@RequestParam OnlineStatus onlineStatus)
     {
         return DriverMapper.makeDriverDTOList(driverService.find(onlineStatus));
+    }
+
+    @PostMapping("/search")
+    public List<DriverDTO> findDriversBySearchCriteria(@RequestBody Map<String, String> params)
+        throws EntityNotFoundException
+    {
+        return driverService.findDriversBySearchCriteria(params);
+    }
+
+    @PostMapping("/selectcar")
+    public DriverDTO selectCar(@RequestParam long driverId, @RequestParam long carId)
+        throws EntityNotFoundException, CarAlreadyInUseException
+    {
+
+        return driverService.selectCar(driverId, carId);
+    }
+
+    @DeleteMapping("/deselectcar")
+    public void deSelectCar(@RequestParam long driverId, @RequestParam long carId)
+        throws EntityNotFoundException, CarAlreadyInUseException
+    {
+        driverService.deSelectCar(driverId, carId);
     }
 }
