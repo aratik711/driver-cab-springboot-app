@@ -26,7 +26,6 @@ You should be aware of the following conventions while you are working on this e
 
 You should commit into a local git repository and include the git repository (.git/) in the upload.
 
-_NOTE: Please DO NOT publish the project, e.g. by uploading it to GitHub or the like!_
 
 ---
 
@@ -68,10 +67,3 @@ Please include instructions how to authenticate/login, so that we can test the e
 
 ---
 
-
-Good luck!
-❤️ mytaxi
-
-
-
-_NOTE: Please make sure to not submit any personal data with your tests result. Personal data is for example your name, your birth date, email address etc._
